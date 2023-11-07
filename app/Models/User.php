@@ -11,9 +11,11 @@ use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable implements JWTSubject
 {
-    use Notifiable;
+    use Notifiable, HasApiTokens;
 
     public $timestamps = false;
+
+    protected $fillable = ['email',  'password', 'name', 'birthdate', 'city', 'work', 'avatar', 'cover', 'token'];
 
     protected $hidden = ['password', 'token'];
 
